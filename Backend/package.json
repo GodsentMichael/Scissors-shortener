@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --config nodemon.json server.ts",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -27,7 +28,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.1.0",
-    "nanoid": "^4.0.2",
+    "nanoid": "^3.3.4",
     "nodemon": "^2.0.22",
     "yup": "^1.1.1"
   }
