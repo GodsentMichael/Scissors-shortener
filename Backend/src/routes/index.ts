@@ -1,5 +1,5 @@
 import {Express, Request, Response} from 'express';
-import {createShortUrl, getAnalytics, handleRedirect} from '../controllers/shortUrlCtrl';
+import {createShortUrl, get1Analytics, handleRedirect} from '../controllers/shortUrlCtrl';
 import validateResource from "../middleware/validation"
 import shortUrlSchema from "../validationSchemas/createUrlSchema"
 
@@ -12,7 +12,7 @@ const routes = (app: Express) => {
 
     app.get('/api/shortUrl/:shortId',handleRedirect)
 
-    app.get('api/shortUrl/analytics', getAnalytics)
+    app.get('api/shortUrl/:shortUrlId', get1Analytics)
 }
 
 export default routes

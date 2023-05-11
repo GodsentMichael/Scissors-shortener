@@ -26,6 +26,18 @@ const shortUrlSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    // analytics: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'analytics',
+    //     required: true,
+    // },
+  
+    // I want to see number of clicks.
+    clickCount: {
+        type: Number,
+        default: 0,
+    },
+
 });
 
 //create a mongoose model
