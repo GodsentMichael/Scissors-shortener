@@ -20,7 +20,7 @@ const shortUrlSchema = new mongoose.Schema({
         type: String,
         unique: true,
         required: true,
-        default: () => nanoid(),
+        default: () =>  nanoid(),
     },
     destination: {
         type: String,
@@ -43,3 +43,42 @@ const shortUrlSchema = new mongoose.Schema({
 //create a mongoose model
 const shortUrl = mongoose.model<ShortUrl>('shortUrl', shortUrlSchema);
 export default shortUrl;
+
+// import mongoose from 'mongoose';
+
+// interface ShortUrl extends mongoose.Document {
+//   destination: string;
+//   shortId: string;
+// }
+
+// const shortUrlSchema = new mongoose.Schema<ShortUrl>(
+//   {
+//     destination: {
+//       type: String,
+//       required: true,
+//     },
+//     shortId: {
+//       type: String,
+//       required: true,
+//       unique: true,
+//       default: () => {
+//         let randomChars = '';
+//         const possibleChars =
+//           'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+//         for (let i = 0; i < 6; i++) {
+//           randomChars += possibleChars.charAt(
+//             Math.floor(Math.random() * possibleChars.length)
+//           );
+//         }
+
+//         return `https://slice.ly/${randomChars}`;
+//       },
+//     },
+//   },
+//   { timestamps: true }
+// );
+
+
+
+// export default mongoose.model<ShortUrl>('shortUrl', shortUrlSchema);
