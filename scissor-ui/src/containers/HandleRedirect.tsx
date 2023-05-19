@@ -45,55 +45,7 @@
 // export default HandleRedirectContainer;
 
 
-// import axios from 'axios';
-// import { useEffect, useState } from 'react';
-// import { Spinner, Box } from '@chakra-ui/react';
-// import { useNavigate } from 'react-router-dom';
 
-// const SERVER_ENDPOINTS = process.env.REACT_APP_SERVER_ENDPOINT || 'http://localhost:5000';
-
-// const HandleRedirectContainer = () => {
-//   const [destination, setDestination] = useState<null | string>(null);
-//   const [error, setError] = useState();
-
-//   const shortId = useParams().shortId;
-
-//   useEffect(() => {
-//     async function getData() {
-//       const {
-//         match: { params: { shortId } },
-//       } = useLocation();
-
-//       return axios.get(`${SERVER_ENDPOINTS}/api/shortUrl/${shortId}`)
-//         .then((resp) => setDestination(resp.data.destination))
-//         .catch((error) => setError(error.message));
-//     }
-//     getData();
-//   }, [shortId]);
-
-//   useEffect(() => {
-//     if (destination) {
-//       useNavigate(destination);
-//     }
-//   }, [destination]);
-
-//   if (!destination && !error) {
-//     return (
-//       <Box
-//         height="100%"
-//         display="flex"
-//         alignItems="center"
-//         justifyContent="center"
-//       >
-//         <Spinner />
-//       </Box>
-//     );
-//   }
-
-//   return <p>{error && JSON.stringify(error)}</p>;
-// };
-
-// export default HandleRedirectContainer;
 
 
 
@@ -102,7 +54,7 @@ import { useEffect, useState } from 'react';
 import { useMatch } from 'react-router-dom';
 import { Spinner, Box } from '@chakra-ui/react';
 
-const SERVER_ENDPOINTS = process.env.REACT_APP_SERVER_ENDPOINT || 'http://localhost:5000';
+const SERVER_ENDPOINTS = process.env.REACT_APP_SERVER_ENDPOINT || 'http://localhost:7070';
 
 const HandleRedirectContainer = () => {
   const [destination, setDestination] = useState<string | null>(null);
@@ -128,6 +80,7 @@ const HandleRedirectContainer = () => {
 
   useEffect(() => {
     if (destination) {
+      // window.location.href = destination;
       window.location.replace(destination);
     }
   }, [destination]);

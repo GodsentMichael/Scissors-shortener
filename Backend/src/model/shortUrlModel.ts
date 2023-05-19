@@ -22,6 +22,13 @@ const shortUrlSchema = new mongoose.Schema({
         required: true,
         default: () =>  nanoid(),
     },
+    customId: {
+        type: String,
+        unique: true,
+        required: true,
+        default: () =>  nanoid(),
+    },
+
     destination: {
         type: String,
         required: true,
@@ -35,6 +42,7 @@ const shortUrlSchema = new mongoose.Schema({
     // I want to see number of clicks.
     clickCount: {
         type: Number,
+        required: true,
         default: 0,
     },
 
